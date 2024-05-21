@@ -65,5 +65,10 @@ namespace _2_1056_HODOROAGA_IONUT
                 nextPageButton.Enabled = false;
             }
         }
+
+        private void addPrescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

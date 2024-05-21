@@ -82,6 +82,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddForms\AddNewDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddNewDoctorForm.Designer.cs">
+      <DependentUpon>AddNewDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddForms\AddNewPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddNewPatientForm.Designer.cs">
+      <DependentUpon>AddNewPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddForms\AddNewPrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddNewPrescriptionForm.Designer.cs">
+      <DependentUpon>AddNewPrescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Documents.cs" />
     <Compile Include="Entities\Doctor.cs" />
@@ -116,6 +134,15 @@
     <Compile Include="Views\PrescriptionsForm.Designer.cs">
       <DependentUpon>PrescriptionsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddForms\AddNewDoctorForm.resx">
+      <DependentUpon>AddNewDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AddNewPatientForm.resx">
+      <DependentUpon>AddNewPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AddNewPrescriptionForm.resx">
+      <DependentUpon>AddNewPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

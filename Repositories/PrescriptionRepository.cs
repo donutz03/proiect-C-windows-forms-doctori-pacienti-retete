@@ -114,5 +114,6 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
             }
             return data;
         }
+
     }
 }
