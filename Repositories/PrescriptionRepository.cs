@@ -110,7 +110,7 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                         data.Add(prescription);
                     }
                 }
-                conn.Close();
+                conn.Close();//
             }
             return data;
         }
