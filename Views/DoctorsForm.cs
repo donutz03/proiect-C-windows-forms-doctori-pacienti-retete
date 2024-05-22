@@ -36,6 +36,20 @@ namespace _2_1056_HODOROAGA_IONUT
 
             doctorDataGridView.AutoGenerateColumns = true;
             doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
+            CreateButtonColumn("Delete doctor", "Delete", "DeleteColumn");
+            CreateButtonColumn("Edit doctor", "Edit", "EditColumn");
+            CreateButtonColumn("Show patients", "Patients", "ViewPatientsColumn");
+        }
+
+        private void CreateButtonColumn(string headerText, string buttonText, string columnName)
+        {
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = headerText;
+            column.Text = buttonText;
+            column.UseColumnTextForButtonValue = true;
+            column.Name = columnName;
+
+            doctorDataGridView.Columns.Add(column);
         }
 
         private void nextPageButton_Click(object sender, EventArgs e)
