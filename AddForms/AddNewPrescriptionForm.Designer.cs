@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.addPrescriptionButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.prescriptionIdLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,14 +48,14 @@
             this.addPrescriptionButton.Text = "Adauga";
             this.addPrescriptionButton.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // prescriptionIdLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.prescriptionIdLabel.AutoSize = true;
+            this.prescriptionIdLabel.Location = new System.Drawing.Point(115, 69);
+            this.prescriptionIdLabel.Name = "prescriptionIdLabel";
+            this.prescriptionIdLabel.Size = new System.Drawing.Size(18, 16);
+            this.prescriptionIdLabel.TabIndex = 1;
+            this.prescriptionIdLabel.Text = "Id";
             // 
             // descriptionLabel
             // 
@@ -121,7 +121,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.descriptionLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.prescriptionIdLabel);
             this.Controls.Add(this.addPrescriptionButton);
             this.Name = "AddNewPrescriptionForm";
             this.Text = "Add a new prescription";
@@ -133,7 +133,7 @@
         #endregion
 
         private System.Windows.Forms.Button addPrescriptionButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label prescriptionIdLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
