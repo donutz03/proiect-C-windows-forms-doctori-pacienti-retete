@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2_1056_HODOROAGA_IONUT.AddForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +34,30 @@ namespace _2_1056_HODOROAGA_IONUT
         {
             PrescriptionsForm prescriptionsForm = new PrescriptionsForm();
             prescriptionsForm.Show();
+        }
+
+        private void newDoctorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewDoctorForm addNewDoctorForm = new AddNewDoctorForm();
+            addNewDoctorForm.Show();
+        }
+
+        private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewPatientForm addNewPatientForm = new AddNewPatientForm();
+            addNewPatientForm.Show();
+        }
+
+        private void newPrescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewPrescriptionForm addNewPrescriptionForm = new AddNewPrescriptionForm();
+            addNewPrescriptionForm.Show();
+        }
+
+        private void databaseSchemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SchemaForm schemaForm = new SchemaForm();
+            schemaForm.Show();
         }
     }
 }
