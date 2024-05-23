@@ -89,7 +89,7 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 var skip = (currentPage - 1) * pageSize;
                 var take = pageSize;
 
-                string sql = $"SELECT * FROM DOCTORS ORDER BY NAME OFFSET :skip ROWS " +
+                string sql = $"SELECT * FROM DOCTORS ORDER BY ID DESC OFFSET :skip ROWS " +
                     $"FETCH NEXT :take ROWS ONLY";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
@@ -111,6 +111,42 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 conn.Close();
             }
             return data;
+        }
+        public void AddDoctor(Doctor doctor)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "INSERT INTO DOCTORS (ID, NAME, POSITION, DEPARTMENT) VALUES (:id, :name, :position, :department)";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = doctor.Id;
+                    cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = doctor.Name;
+                    cmd.Parameters.Add("position", OracleDbType.Varchar2).Value = doctor.Position;
+                    cmd.Parameters.Add("department", OracleDbType.Varchar2).Value = doctor.Department;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Commit the transaction
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
         }
     }
 }

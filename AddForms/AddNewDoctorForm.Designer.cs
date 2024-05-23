@@ -89,6 +89,7 @@
             this.addDoctorButton.TabIndex = 8;
             this.addDoctorButton.Text = "Adauga";
             this.addDoctorButton.UseVisualStyleBackColor = false;
+            this.addDoctorButton.Click += new System.EventHandler(this.addDoctorButton_Click);
             // 
             // doctorIdTb
             // 

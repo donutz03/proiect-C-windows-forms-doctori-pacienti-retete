@@ -16,6 +16,7 @@ namespace _2_1056_HODOROAGA_IONUT
         public MainForm()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace _2_1056_HODOROAGA_IONUT
         private void doctorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DoctorsForm doctorsForm = new DoctorsForm();
+            doctorsForm.MdiParent = this;
             doctorsForm.Show();
         }
 
@@ -58,6 +60,11 @@ namespace _2_1056_HODOROAGA_IONUT
         {
             SchemaForm schemaForm = new SchemaForm();
             schemaForm.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
