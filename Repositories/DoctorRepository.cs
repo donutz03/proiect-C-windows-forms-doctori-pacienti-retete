@@ -78,9 +78,9 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
             return count;
         }
 
-        public List<Doctor> FetchData(int currentPage, int pageSize)
+        public BindingList<Doctor> FetchData(int currentPage, int pageSize)
         {
-            var data = new List<Doctor>();
+            var data = new BindingList<Doctor>();
 
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
@@ -127,6 +127,44 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                     cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = doctor.Name;
                     cmd.Parameters.Add("position", OracleDbType.Varchar2).Value = doctor.Position;
                     cmd.Parameters.Add("department", OracleDbType.Varchar2).Value = doctor.Department;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Commit the transaction
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+                
+
+                conn.Close();
+            }
+        }
+
+        public void UpdateDoctor(Doctor doctor)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "UPDATE DOCTORS SET NAME = :name, POSITION = :position, DEPARTMENT = :department WHERE ID = :id";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = doctor.Name;
+                    cmd.Parameters.Add("position", OracleDbType.Varchar2).Value = doctor.Position;
+                    cmd.Parameters.Add("department", OracleDbType.Varchar2).Value = doctor.Department;
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = doctor.Id;
 
                     cmd.ExecuteNonQuery();
                 }

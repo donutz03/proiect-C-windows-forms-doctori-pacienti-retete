@@ -43,6 +43,13 @@ namespace _2_1056_HODOROAGA_IONUT.AddForms
             _DoctorRepository.AddDoctor(newDoctor);
 
             MessageBox.Show("Doctor added successfully!");
+            foreach (var form in Application.OpenForms)
+            {
+                if (form is DoctorsForm doctorsForm)
+                {
+                    doctorsForm.RefreshData();
+                }
+            }
             doctorIdTb.Text = "";
             doctorNameTb.Text = "";
             doctorPositionTb.Text = "";

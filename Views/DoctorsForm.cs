@@ -84,9 +84,6 @@ namespace _2_1056_HODOROAGA_IONUT
             }
         }
 
-        private void refreshDoctorsButton_Click(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
+    
     }
 }
