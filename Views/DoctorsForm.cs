@@ -39,8 +39,9 @@ namespace _2_1056_HODOROAGA_IONUT
             CreateButtonColumn("Delete doctor", "Delete", "DeleteColumn");
             CreateButtonColumn("Edit doctor", "Edit", "EditColumn");
             CreateButtonColumn("Show patients", "Patients", "ViewPatientsColumn");
-        }
 
+        }
+       
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
         {
             DataGridViewButtonColumn column = new DataGridViewButtonColumn();
@@ -50,6 +51,13 @@ namespace _2_1056_HODOROAGA_IONUT
             column.Name = columnName;
 
             doctorDataGridView.Columns.Add(column);
+        }
+
+      
+
+        public void RefreshData()
+        {
+            doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
         }
 
         private void nextPageButton_Click(object sender, EventArgs e)
@@ -74,6 +82,11 @@ namespace _2_1056_HODOROAGA_IONUT
             {
                 nextPageButton.Enabled = false;
             }
+        }
+
+        private void refreshDoctorsButton_Click(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

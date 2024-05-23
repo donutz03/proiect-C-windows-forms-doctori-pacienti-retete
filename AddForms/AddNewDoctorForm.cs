@@ -13,8 +13,10 @@ using System.Xml.Linq;
 
 namespace _2_1056_HODOROAGA_IONUT.AddForms
 {
+
     public partial class AddNewDoctorForm : Form
     {
+
         private DoctorRepository _DoctorRepository;
 
         public AddNewDoctorForm()
@@ -47,5 +49,6 @@ namespace _2_1056_HODOROAGA_IONUT.AddForms
             doctorDepartmentTb.Text = "";
 
         }
+      
     }
 }
