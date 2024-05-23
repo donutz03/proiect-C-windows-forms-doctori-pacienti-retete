@@ -12,13 +12,11 @@ namespace _2_1056_HODOROAGA_IONUT.Entities
     public class Prescription
     {
         public int Id { get; set; }
-
-        public string Description { get; set; }   
         public int IdPacient {  get; set; }
         public string Pacient { get; set; }
         public int IdDoctor { get; set; }
         public string Doctor{ get; set; }
-        
+        public string Description { get; set; }
 
     }
 

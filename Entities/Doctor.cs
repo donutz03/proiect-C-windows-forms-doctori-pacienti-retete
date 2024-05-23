@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2_1056_HODOROAGA_IONUT.Entities
 {
+    [Serializable]
     public class Doctor
     {
         public int Id { get; set; }
