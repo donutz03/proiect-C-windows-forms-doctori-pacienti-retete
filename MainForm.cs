@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace _2_1056_HODOROAGA_IONUT
 {
-    public partial class MainForm : Form
+    public partial  class MainForm : Form
     {
         public MainForm()
         {

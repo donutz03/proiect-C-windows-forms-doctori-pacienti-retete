@@ -102,6 +102,12 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Documents.cs" />
+    <Compile Include="EditForms\EditDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditDoctorForm.Designer.cs">
+      <DependentUpon>EditDoctorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Prescription.cs" />
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddNewPrescriptionForm.resx">
       <DependentUpon>AddNewPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditDoctorForm.resx">
+      <DependentUpon>EditDoctorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

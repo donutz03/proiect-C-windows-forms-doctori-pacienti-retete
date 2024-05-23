@@ -51,7 +51,7 @@
             // nextPageButton
             // 
             this.nextPageButton.Location = new System.Drawing.Point(1052, 548);
-            this.nextPageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nextPageButton.Margin = new System.Windows.Forms.Padding(4);
             this.nextPageButton.Name = "nextPageButton";
             this.nextPageButton.Size = new System.Drawing.Size(100, 28);
             this.nextPageButton.TabIndex = 19;
@@ -62,7 +62,7 @@
             // 
             this.currentPageTextBox.Enabled = false;
             this.currentPageTextBox.Location = new System.Drawing.Point(912, 554);
-            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.currentPageTextBox.Name = "currentPageTextBox";
             this.currentPageTextBox.Size = new System.Drawing.Size(132, 22);
             this.currentPageTextBox.TabIndex = 18;
@@ -80,7 +80,7 @@
             // previousPageButton
             // 
             this.previousPageButton.Location = new System.Drawing.Point(779, 548);
-            this.previousPageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.previousPageButton.Margin = new System.Windows.Forms.Padding(4);
             this.previousPageButton.Name = "previousPageButton";
             this.previousPageButton.Size = new System.Drawing.Size(115, 28);
             this.previousPageButton.TabIndex = 16;
@@ -93,18 +93,19 @@
             this.doctorDataGridView.AllowUserToDeleteRows = false;
             this.doctorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorDataGridView.Location = new System.Drawing.Point(67, 60);
-            this.doctorDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.doctorDataGridView.Name = "doctorDataGridView";
             this.doctorDataGridView.ReadOnly = true;
             this.doctorDataGridView.RowHeadersWidth = 51;
             this.doctorDataGridView.Size = new System.Drawing.Size(765, 462);
             this.doctorDataGridView.TabIndex = 15;
+            this.doctorDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doctorDataGridView_CellClick);
             // 
             // totalCountTextBox
             // 
             this.totalCountTextBox.Enabled = false;
             this.totalCountTextBox.Location = new System.Drawing.Point(993, 46);
-            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.totalCountTextBox.Name = "totalCountTextBox";
             this.totalCountTextBox.Size = new System.Drawing.Size(132, 22);
             this.totalCountTextBox.TabIndex = 14;

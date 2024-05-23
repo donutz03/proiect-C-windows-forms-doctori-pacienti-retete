@@ -1,10 +1,13 @@
-﻿using _2_1056_HODOROAGA_IONUT.Repositories;
+﻿using _2_1056_HODOROAGA_IONUT.EditForms;
+using _2_1056_HODOROAGA_IONUT.Entities;
+using _2_1056_HODOROAGA_IONUT.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,12 +39,12 @@ namespace _2_1056_HODOROAGA_IONUT
 
             doctorDataGridView.AutoGenerateColumns = true;
             doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
-            CreateButtonColumn("Delete doctor", "Delete", "DeleteColumn");
-            CreateButtonColumn("Edit doctor", "Edit", "EditColumn");
+            CreateButtonColumn("Delete doctor", "Delete", "DeleteDoctorColumn");
+            CreateButtonColumn("Edit doctor", "Edit", "EditDoctorColumn");
             CreateButtonColumn("Show patients", "Patients", "ViewPatientsColumn");
 
         }
-       
+
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
         {
             DataGridViewButtonColumn column = new DataGridViewButtonColumn();
@@ -53,7 +56,7 @@ namespace _2_1056_HODOROAGA_IONUT
             doctorDataGridView.Columns.Add(column);
         }
 
-      
+
 
         public void RefreshData()
         {
@@ -84,6 +87,36 @@ namespace _2_1056_HODOROAGA_IONUT
             }
         }
 
-    
+        private void EditDoctor(Doctor doctor)
+        {
+            var editDoctorForm = new EditDoctorForm(doctor);
+            editDoctorForm.MdiParent = MdiParent;
+            editDoctorForm.Show();
+        }
+
+
+
+        private void doctorDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < doctorDataGridView.Rows.Count)
+            {
+                var columnName = ((DataGridView)sender).Columns[e.ColumnIndex].Name;
+                var doctor = (Doctor)doctorDataGridView.Rows[e.RowIndex].DataBoundItem;
+
+                switch (columnName)
+                {
+                    case "EditDoctorColumn":
+                        {
+                            EditDoctor(doctor);
+                            break;
+                        }
+                        //case "DeleteDoctorColumn":
+                        //    {
+                        //        DeleteProduct(product);
+                        //        break;
+                        //    }
+                }
+            }
+        }
     }
 }

@@ -169,7 +169,6 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                     cmd.ExecuteNonQuery();
                 }
 
-                // Commit the transaction
                 using (var transaction = conn.BeginTransaction())
                 {
                     try
