@@ -101,6 +101,7 @@ namespace _2_1056_HODOROAGA_IONUT
             this.prescriptionDataGridView.RowHeadersWidth = 51;
             this.prescriptionDataGridView.Size = new System.Drawing.Size(765, 462);
             this.prescriptionDataGridView.TabIndex = 22;
+            this.prescriptionDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prescriptionDataGridView_CellClick);
             // 
             // totalCountTextBox
             // 

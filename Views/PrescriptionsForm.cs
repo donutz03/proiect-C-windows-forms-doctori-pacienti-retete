@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1056_HODOROAGA_IONUT.EditForms;
 using _2_1056_HODOROAGA_IONUT.Entities;
@@ -102,6 +95,7 @@ namespace _2_1056_HODOROAGA_IONUT
             }
         }
 
+      
         private void prescriptionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < prescriptionDataGridView.Rows.Count)
@@ -119,12 +113,17 @@ namespace _2_1056_HODOROAGA_IONUT
                     case "DeletePrescriptionColumn":
                         {
                             DeletePrescription(prescription);
+                            foreach (var form in Application.OpenForms)
+                            {
+                                if (form is PrescriptionsForm prescriptionsForm)
+                                {
+                                    prescriptionsForm.RefreshData();
+                                }
+                            }
                             break;
                         }
                 }
             }
         }
-
-      
     }
 }

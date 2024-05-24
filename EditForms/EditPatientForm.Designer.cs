@@ -43,7 +43,7 @@
             this.updatePatientNameTb.Location = new System.Drawing.Point(288, 134);
             this.updatePatientNameTb.Name = "updatePatientNameTb";
             this.updatePatientNameTb.Size = new System.Drawing.Size(275, 26);
-            this.updatePatientNameTb.TabIndex = 30;
+            this.updatePatientNameTb.TabIndex = 3;
             // 
             // updatePatientIdTb
             // 
@@ -51,7 +51,7 @@
             this.updatePatientIdTb.Location = new System.Drawing.Point(288, 88);
             this.updatePatientIdTb.Name = "updatePatientIdTb";
             this.updatePatientIdTb.Size = new System.Drawing.Size(275, 26);
-            this.updatePatientIdTb.TabIndex = 29;
+            this.updatePatientIdTb.TabIndex = 1;
             // 
             // updateDateOfBirthPatientLabel
             // 
@@ -60,7 +60,7 @@
             this.updateDateOfBirthPatientLabel.Location = new System.Drawing.Point(180, 194);
             this.updateDateOfBirthPatientLabel.Name = "updateDateOfBirthPatientLabel";
             this.updateDateOfBirthPatientLabel.Size = new System.Drawing.Size(102, 20);
-            this.updateDateOfBirthPatientLabel.TabIndex = 28;
+            this.updateDateOfBirthPatientLabel.TabIndex = 4;
             this.updateDateOfBirthPatientLabel.Text = "Date of birth";
             // 
             // updatePacientNameLabel
@@ -70,7 +70,7 @@
             this.updatePacientNameLabel.Location = new System.Drawing.Point(180, 140);
             this.updatePacientNameLabel.Name = "updatePacientNameLabel";
             this.updatePacientNameLabel.Size = new System.Drawing.Size(53, 20);
-            this.updatePacientNameLabel.TabIndex = 27;
+            this.updatePacientNameLabel.TabIndex = 2;
             this.updatePacientNameLabel.Text = "Name";
             // 
             // updatePatientIdLabel
@@ -80,7 +80,7 @@
             this.updatePatientIdLabel.Location = new System.Drawing.Point(180, 88);
             this.updatePatientIdLabel.Name = "updatePatientIdLabel";
             this.updatePatientIdLabel.Size = new System.Drawing.Size(22, 20);
-            this.updatePatientIdLabel.TabIndex = 26;
+            this.updatePatientIdLabel.TabIndex = 0;
             this.updatePatientIdLabel.Text = "Id";
             // 
             // updatePatientButton
@@ -90,7 +90,7 @@
             this.updatePatientButton.Location = new System.Drawing.Point(336, 256);
             this.updatePatientButton.Name = "updatePatientButton";
             this.updatePatientButton.Size = new System.Drawing.Size(173, 88);
-            this.updatePatientButton.TabIndex = 25;
+            this.updatePatientButton.TabIndex = 6;
             this.updatePatientButton.Text = "Actualizeaza";
             this.updatePatientButton.UseVisualStyleBackColor = false;
             this.updatePatientButton.Click += new System.EventHandler(this.updatePatientButton_Click);
@@ -100,7 +100,7 @@
             this.editPatientDateTimePicker.Location = new System.Drawing.Point(288, 194);
             this.editPatientDateTimePicker.Name = "editPatientDateTimePicker";
             this.editPatientDateTimePicker.Size = new System.Drawing.Size(275, 22);
-            this.editPatientDateTimePicker.TabIndex = 31;
+            this.editPatientDateTimePicker.TabIndex = 5;
             // 
             // EditPatientForm
             // 

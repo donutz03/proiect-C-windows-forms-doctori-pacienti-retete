@@ -1,12 +1,5 @@
 ﻿using _2_1056_HODOROAGA_IONUT.AddForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2_1056_HODOROAGA_IONUT
@@ -93,6 +86,13 @@ namespace _2_1056_HODOROAGA_IONUT
                     }
                 }
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            PatientsForm patientsForm = new PatientsForm();
+            patientsForm.MdiParent = this;
+            patientsForm.Show();
         }
     }
 }

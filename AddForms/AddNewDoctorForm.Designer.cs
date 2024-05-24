@@ -46,7 +46,7 @@
             this.doctorDepartmentLabel.Location = new System.Drawing.Point(224, 254);
             this.doctorDepartmentLabel.Name = "doctorDepartmentLabel";
             this.doctorDepartmentLabel.Size = new System.Drawing.Size(97, 20);
-            this.doctorDepartmentLabel.TabIndex = 12;
+            this.doctorDepartmentLabel.TabIndex = 6;
             this.doctorDepartmentLabel.Text = "Department";
             // 
             // doctorPositionLabel
@@ -56,7 +56,7 @@
             this.doctorPositionLabel.Location = new System.Drawing.Point(224, 196);
             this.doctorPositionLabel.Name = "doctorPositionLabel";
             this.doctorPositionLabel.Size = new System.Drawing.Size(69, 20);
-            this.doctorPositionLabel.TabIndex = 11;
+            this.doctorPositionLabel.TabIndex = 4;
             this.doctorPositionLabel.Text = "Position";
             // 
             // doctorNameLabel
@@ -66,7 +66,7 @@
             this.doctorNameLabel.Location = new System.Drawing.Point(224, 142);
             this.doctorNameLabel.Name = "doctorNameLabel";
             this.doctorNameLabel.Size = new System.Drawing.Size(53, 20);
-            this.doctorNameLabel.TabIndex = 10;
+            this.doctorNameLabel.TabIndex = 2;
             this.doctorNameLabel.Text = "Name";
             // 
             // doctorIdLabel
@@ -76,7 +76,7 @@
             this.doctorIdLabel.Location = new System.Drawing.Point(224, 90);
             this.doctorIdLabel.Name = "doctorIdLabel";
             this.doctorIdLabel.Size = new System.Drawing.Size(22, 20);
-            this.doctorIdLabel.TabIndex = 9;
+            this.doctorIdLabel.TabIndex = 0;
             this.doctorIdLabel.Text = "Id";
             // 
             // addDoctorButton
@@ -97,7 +97,7 @@
             this.doctorIdTb.Location = new System.Drawing.Point(332, 90);
             this.doctorIdTb.Name = "doctorIdTb";
             this.doctorIdTb.Size = new System.Drawing.Size(275, 26);
-            this.doctorIdTb.TabIndex = 13;
+            this.doctorIdTb.TabIndex = 1;
             // 
             // doctorNameTb
             // 
@@ -105,7 +105,7 @@
             this.doctorNameTb.Location = new System.Drawing.Point(332, 136);
             this.doctorNameTb.Name = "doctorNameTb";
             this.doctorNameTb.Size = new System.Drawing.Size(275, 26);
-            this.doctorNameTb.TabIndex = 14;
+            this.doctorNameTb.TabIndex = 3;
             // 
             // doctorPositionTb
             // 
@@ -113,7 +113,7 @@
             this.doctorPositionTb.Location = new System.Drawing.Point(332, 190);
             this.doctorPositionTb.Name = "doctorPositionTb";
             this.doctorPositionTb.Size = new System.Drawing.Size(275, 26);
-            this.doctorPositionTb.TabIndex = 15;
+            this.doctorPositionTb.TabIndex = 5;
             // 
             // doctorDepartmentTb
             // 
@@ -121,7 +121,7 @@
             this.doctorDepartmentTb.Location = new System.Drawing.Point(332, 248);
             this.doctorDepartmentTb.Name = "doctorDepartmentTb";
             this.doctorDepartmentTb.Size = new System.Drawing.Size(275, 26);
-            this.doctorDepartmentTb.TabIndex = 16;
+            this.doctorDepartmentTb.TabIndex = 7;
             // 
             // AddNewDoctorForm
             // 

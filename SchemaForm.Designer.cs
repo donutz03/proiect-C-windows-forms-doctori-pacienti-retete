@@ -50,6 +50,7 @@
             this.Controls.Add(this.schemaPictureBox);
             this.Name = "SchemaForm";
             this.Text = "SchemaForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SchemaForm_FormClosing);
             this.Load += new System.EventHandler(this.SchemaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.schemaPictureBox)).EndInit();
             this.ResumeLayout(false);

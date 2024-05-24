@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2_1056_HODOROAGA_IONUT
@@ -19,7 +13,7 @@ namespace _2_1056_HODOROAGA_IONUT
 
         private void SchemaForm_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
             CenterPictureBox();
         }
 
@@ -29,6 +23,11 @@ namespace _2_1056_HODOROAGA_IONUT
             int y = (this.ClientSize.Height - schemaPictureBox.Height) / 2;
 
             schemaPictureBox.Location = new Point(x, y);
+        }
+
+        private void SchemaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
         }
     }
 }

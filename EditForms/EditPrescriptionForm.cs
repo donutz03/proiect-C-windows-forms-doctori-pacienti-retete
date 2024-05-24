@@ -1,13 +1,6 @@
 ﻿using _2_1056_HODOROAGA_IONUT.Entities;
 using _2_1056_HODOROAGA_IONUT.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2_1056_HODOROAGA_IONUT.EditForms
@@ -27,8 +20,8 @@ namespace _2_1056_HODOROAGA_IONUT.EditForms
             editPrescriptionDescriptionRTB.Text = _prescription.Description;
             editPrescriptionPatientIdTb.Text = _prescription.IdPacient.ToString();
             editPrescriptionDoctorIdTb.Text = _prescription.IdDoctor.ToString();
-            editPrescriptionPatientNameTb.Text = _prescription.Pacient;
-            editPrescriptionDoctorNameTb.Text = _prescription.Doctor;
+            editPrescriptionPatientNameTb.Text = _prescription.PacientName;
+            editPrescriptionDoctorNameTb.Text = _prescription.DoctorName;
         }
 
         private void editPrescriptionButton_Click(object sender, EventArgs e)
@@ -36,16 +29,18 @@ namespace _2_1056_HODOROAGA_IONUT.EditForms
             _prescription.Description = editPrescriptionDescriptionRTB.Text;
             _prescription.IdPacient = int.Parse(editPrescriptionPatientIdTb.Text);
             _prescription.IdDoctor = int.Parse(editPrescriptionDoctorIdTb.Text);
-            _prescription.Pacient = editPrescriptionPatientNameTb.Text;
-            _prescription.Doctor = editPrescriptionDoctorNameTb.Text;
+            _prescription.PacientName = editPrescriptionPatientNameTb.Text;
+            _prescription.DoctorName = editPrescriptionDoctorNameTb.Text;
 
             _PrescriptionRepository.UpdatePrescription(_prescription);
-            
 
 
-            foreach (var form in Application.OpenForms.OfType<PrescriptionsForm>())
+            foreach (var form in Application.OpenForms)
             {
-                form.RefreshData();
+                if (form is PrescriptionsForm prescriptionsForm)
+                {
+                    prescriptionsForm.RefreshData();
+                }
             }
 
             Close();

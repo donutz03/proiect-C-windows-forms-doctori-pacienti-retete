@@ -45,7 +45,7 @@
             this.editDoctorDepartmentTb.Location = new System.Drawing.Point(284, 223);
             this.editDoctorDepartmentTb.Name = "editDoctorDepartmentTb";
             this.editDoctorDepartmentTb.Size = new System.Drawing.Size(275, 26);
-            this.editDoctorDepartmentTb.TabIndex = 25;
+            this.editDoctorDepartmentTb.TabIndex = 7;
             // 
             // editDoctorPositionTb
             // 
@@ -53,7 +53,7 @@
             this.editDoctorPositionTb.Location = new System.Drawing.Point(284, 165);
             this.editDoctorPositionTb.Name = "editDoctorPositionTb";
             this.editDoctorPositionTb.Size = new System.Drawing.Size(275, 26);
-            this.editDoctorPositionTb.TabIndex = 24;
+            this.editDoctorPositionTb.TabIndex = 5;
             // 
             // editDoctorNameTb
             // 
@@ -61,7 +61,7 @@
             this.editDoctorNameTb.Location = new System.Drawing.Point(284, 111);
             this.editDoctorNameTb.Name = "editDoctorNameTb";
             this.editDoctorNameTb.Size = new System.Drawing.Size(275, 26);
-            this.editDoctorNameTb.TabIndex = 23;
+            this.editDoctorNameTb.TabIndex = 3;
             // 
             // editDdoctorDepartmentLabel
             // 
@@ -70,7 +70,7 @@
             this.editDdoctorDepartmentLabel.Location = new System.Drawing.Point(176, 229);
             this.editDdoctorDepartmentLabel.Name = "editDdoctorDepartmentLabel";
             this.editDdoctorDepartmentLabel.Size = new System.Drawing.Size(97, 20);
-            this.editDdoctorDepartmentLabel.TabIndex = 21;
+            this.editDdoctorDepartmentLabel.TabIndex = 6;
             this.editDdoctorDepartmentLabel.Text = "Department";
             // 
             // editDoctorPositionLabel
@@ -80,7 +80,7 @@
             this.editDoctorPositionLabel.Location = new System.Drawing.Point(176, 171);
             this.editDoctorPositionLabel.Name = "editDoctorPositionLabel";
             this.editDoctorPositionLabel.Size = new System.Drawing.Size(69, 20);
-            this.editDoctorPositionLabel.TabIndex = 20;
+            this.editDoctorPositionLabel.TabIndex = 4;
             this.editDoctorPositionLabel.Text = "Position";
             // 
             // editDoctorNameLabel
@@ -90,7 +90,7 @@
             this.editDoctorNameLabel.Location = new System.Drawing.Point(176, 117);
             this.editDoctorNameLabel.Name = "editDoctorNameLabel";
             this.editDoctorNameLabel.Size = new System.Drawing.Size(53, 20);
-            this.editDoctorNameLabel.TabIndex = 19;
+            this.editDoctorNameLabel.TabIndex = 2;
             this.editDoctorNameLabel.Text = "Name";
             // 
             // EditDoctorButton
@@ -100,7 +100,7 @@
             this.EditDoctorButton.Location = new System.Drawing.Point(335, 291);
             this.EditDoctorButton.Name = "EditDoctorButton";
             this.EditDoctorButton.Size = new System.Drawing.Size(173, 88);
-            this.EditDoctorButton.TabIndex = 17;
+            this.EditDoctorButton.TabIndex = 8;
             this.EditDoctorButton.Text = "Actualizeaza";
             this.EditDoctorButton.UseVisualStyleBackColor = false;
             this.EditDoctorButton.Click += new System.EventHandler(this.EditDoctorButton_Click);
@@ -112,7 +112,7 @@
             this.editDoctorIdLabel.Location = new System.Drawing.Point(176, 65);
             this.editDoctorIdLabel.Name = "editDoctorIdLabel";
             this.editDoctorIdLabel.Size = new System.Drawing.Size(22, 20);
-            this.editDoctorIdLabel.TabIndex = 18;
+            this.editDoctorIdLabel.TabIndex = 0;
             this.editDoctorIdLabel.Text = "Id";
             // 
             // editDoctorIdTb
@@ -121,7 +121,7 @@
             this.editDoctorIdTb.Location = new System.Drawing.Point(284, 65);
             this.editDoctorIdTb.Name = "editDoctorIdTb";
             this.editDoctorIdTb.Size = new System.Drawing.Size(275, 26);
-            this.editDoctorIdTb.TabIndex = 22;
+            this.editDoctorIdTb.TabIndex = 1;
             // 
             // EditDoctorForm
             // 

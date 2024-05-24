@@ -1,10 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using _2_1056_HODOROAGA_IONUT.Entities;
 using Oracle.ManagedDataAccess.Client;
 
@@ -57,9 +53,9 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                         prescription.Id = int.Parse(dataReader["ID"].ToString());
                         prescription.Description = dataReader["Description"].ToString();
                         prescription.IdPacient = int.Parse(dataReader["id_pacient"].ToString());
-                        prescription.Pacient = dataReader["pacientNume"].ToString();
+                        prescription.PacientName = dataReader["pacientNume"].ToString();
                         prescription.IdDoctor = int.Parse(dataReader["id_doctor"].ToString());
-                        prescription.Doctor = dataReader["doctorNume"].ToString();
+                        prescription.DoctorName = dataReader["doctorNume"].ToString();
                         data.Add(prescription);
                     }
                 }
@@ -106,10 +102,12 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
 
                 using (OracleCommand cmd = conn.CreateCommand())
                 {
-                    var sql = "INSERT INTO RETETE (ID, DESCRIPTION, ID_PACIENT, ID_DOCTOR) VALUES (:id, :description, :idPacient, :idDoctor)";
+                    var sql = "INSERT INTO RETETE (ID, doctorNume, pacientNume, DESCRIPTION, ID_PACIENT, ID_DOCTOR) VALUES (:id, :doctorName, :patientName, :description, :idPacient, :idDoctor)";
                     cmd.CommandText = sql;
 
                     cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;
+                    cmd.Parameters.Add("doctorName", OracleDbType.Varchar2).Value = prescription.DoctorName;
+                    cmd.Parameters.Add("patientName", OracleDbType.Varchar2).Value = prescription.PacientName;
                     cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
                     cmd.Parameters.Add("idPacient", OracleDbType.Int32).Value = prescription.IdPacient;
                     cmd.Parameters.Add("idDoctor", OracleDbType.Int32).Value = prescription.IdDoctor;
@@ -142,10 +140,12 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
 
                 using (OracleCommand cmd = conn.CreateCommand())
                 {
-                    var sql = "UPDATE RETETE SET DESCRIPTION = :description, ID_PACIENT = :idPacient, ID_DOCTOR = :idDoctor WHERE ID = :id";
+                    var sql = "UPDATE RETETE SET pacientNume = :numePacient, doctorNume = :numeDoctor, DESCRIPTION = :description, ID_PACIENT = :idPacient, ID_DOCTOR = :idDoctor WHERE ID = :id";
                     cmd.CommandText = sql;
 
                     cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
+                    cmd.Parameters.Add("numePacient", OracleDbType.Varchar2).Value = prescription.PacientName;
+                    cmd.Parameters.Add("numeDoctor", OracleDbType.Varchar2).Value = prescription.DoctorName;
                     cmd.Parameters.Add("idPacient", OracleDbType.Int32).Value = prescription.IdPacient;
                     cmd.Parameters.Add("idDoctor", OracleDbType.Int32).Value = prescription.IdDoctor;
                     cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;

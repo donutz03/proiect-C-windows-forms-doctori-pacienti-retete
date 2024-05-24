@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1056_HODOROAGA_IONUT.EditForms;
 using _2_1056_HODOROAGA_IONUT.Entities;
@@ -117,6 +110,13 @@ namespace _2_1056_HODOROAGA_IONUT
                         break;
                     case "DeletePatientColumn":
                         DeletePatient(patient);
+                        foreach (var form in Application.OpenForms)
+                        {
+                            if (form is PatientsForm patientsForm)
+                            {
+                                patientsForm.RefreshData();
+                            }
+                        }
                         break;
                         // case "ViewPrescriptionsColumn":
                         //   ShowPrescriptions(patient);
