@@ -57,6 +57,7 @@
             this.nextPageButton.TabIndex = 19;
             this.nextPageButton.Text = "Next page";
             this.nextPageButton.UseVisualStyleBackColor = true;
+            this.nextPageButton.Click += new System.EventHandler(this.nextPageButton_Click);
             // 
             // currentPageTextBox
             // 
@@ -86,6 +87,7 @@
             this.previousPageButton.TabIndex = 16;
             this.previousPageButton.Text = "Previous page";
             this.previousPageButton.UseVisualStyleBackColor = true;
+            this.previousPageButton.Click += new System.EventHandler(this.previousPageButton_Click_1);
             // 
             // doctorDataGridView
             // 

@@ -142,10 +142,9 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 {
                     var sql = "UPDATE RETETE SET pacientNume = :numePacient, doctorNume = :numeDoctor, DESCRIPTION = :description, ID_PACIENT = :idPacient, ID_DOCTOR = :idDoctor WHERE ID = :id";
                     cmd.CommandText = sql;
-
-                    cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
                     cmd.Parameters.Add("numePacient", OracleDbType.Varchar2).Value = prescription.PacientName;
                     cmd.Parameters.Add("numeDoctor", OracleDbType.Varchar2).Value = prescription.DoctorName;
+                    cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
                     cmd.Parameters.Add("idPacient", OracleDbType.Int32).Value = prescription.IdPacient;
                     cmd.Parameters.Add("idDoctor", OracleDbType.Int32).Value = prescription.IdDoctor;
                     cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;

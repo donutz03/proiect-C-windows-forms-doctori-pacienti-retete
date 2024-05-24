@@ -68,12 +68,12 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
 
                 using (OracleCommand cmd = conn.CreateCommand())
                 {
-                    var sql = "INSERT INTO PACIENTI (ID, NAME, DateOfBirth) VALUES (:id, :name, :dateOfBirth)"; // Assuming columns
+                    var sql = "INSERT INTO PACIENTI (ID, NAME, DateOfBirth) VALUES (:id, :name, :dateOfBirth)";
                     cmd.CommandText = sql;
 
                     cmd.Parameters.Add("id", OracleDbType.Int32).Value = newPatient.Id;
                     cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = newPatient.Name;
-                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = newPatient.DateOfBirth; // Assuming Date type
+                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = newPatient.DateOfBirth;
 
                     cmd.ExecuteNonQuery();
                 }
@@ -103,11 +103,11 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
 
                 using (OracleCommand cmd = conn.CreateCommand())
                 {
-                    var sql = "UPDATE PACIENTI SET NAME = :name, DateOfBirth = :dateOfBirth WHERE ID = :id"; // Assuming columns
+                    var sql = "UPDATE PACIENTI SET NAME = :name, DateOfBirth = :dateOfBirth WHERE ID = :id";
                     cmd.CommandText = sql;
 
                     cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = patient.Name;
-                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = patient.DateOfBirth; // Assuming Date type
+                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = patient.DateOfBirth;
                     cmd.Parameters.Add("id", OracleDbType.Int32).Value = patient.Id;
 
                     cmd.ExecuteNonQuery();

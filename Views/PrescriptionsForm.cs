@@ -11,7 +11,7 @@ namespace _2_1056_HODOROAGA_IONUT
        
         private int _totalCount;
         private int _currentPage = 1;
-        private int _pageSize = 25;
+        private int _pageSize = 8;
         private int _totalPages;
 
         private PrescriptionRepository _PrescriptionRepository;
@@ -53,15 +53,7 @@ namespace _2_1056_HODOROAGA_IONUT
             prescriptionDataGridView.DataSource = _PrescriptionRepository.FetchData(_currentPage, _pageSize);
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void previousPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void EvaluateButtons()
         {
@@ -98,7 +90,7 @@ namespace _2_1056_HODOROAGA_IONUT
       
         private void prescriptionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < prescriptionDataGridView.Rows.Count)
+            if (e.RowIndex >= 0 && e.RowIndex < prescriptionDataGridView.Rows.Count && e.ColumnIndex >= 0 && e.ColumnIndex < prescriptionDataGridView.Columns.Count)
             {
                 var columnName = ((DataGridView)sender).Columns[e.ColumnIndex].Name;
                 var prescription = (Prescription)prescriptionDataGridView.Rows[e.RowIndex].DataBoundItem;
@@ -124,6 +116,26 @@ namespace _2_1056_HODOROAGA_IONUT
                         }
                 }
             }
+        }
+
+        private void previousPageButton_Click(object sender, EventArgs e)
+        {
+            _currentPage--;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+            prescriptionDataGridView.DataSource = _PrescriptionRepository.FetchData(_currentPage, _pageSize);
+        }
+
+        private void nextPageButton_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+           prescriptionDataGridView.DataSource = _PrescriptionRepository.FetchData(_currentPage, _pageSize);
         }
     }
 }

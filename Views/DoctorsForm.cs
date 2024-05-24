@@ -13,7 +13,7 @@ namespace _2_1056_HODOROAGA_IONUT
     {
         private int _totalCount;
         private int _currentPage = 1;
-        private int _pageSize = 25;
+        private int _pageSize = 8;
         private int _totalPages;
 
         private DoctorRepository _DoctorRepository;
@@ -61,15 +61,7 @@ namespace _2_1056_HODOROAGA_IONUT
             doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void previousPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void EvaluateButtons()
         {
@@ -104,7 +96,7 @@ namespace _2_1056_HODOROAGA_IONUT
 
         private void doctorDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < doctorDataGridView.Rows.Count)
+            if (e.RowIndex >= 0 && e.RowIndex < doctorDataGridView.Rows.Count && e.ColumnIndex >= 0 && e.ColumnIndex < doctorDataGridView.Columns.Count)
             {
                 var columnName = ((DataGridView)sender).Columns[e.ColumnIndex].Name;
                 var doctor = (Doctor)doctorDataGridView.Rows[e.RowIndex].DataBoundItem;
@@ -148,6 +140,26 @@ namespace _2_1056_HODOROAGA_IONUT
             {
                 MessageBox.Show("Doctorul " + doctor.Name + " nu are pacienti!", "Lipsa pacienti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void previousPageButton_Click_1(object sender, EventArgs e)
+        {
+            _currentPage--;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+            doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
+        }
+
+        private void nextPageButton_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+            doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
         }
     }
 }

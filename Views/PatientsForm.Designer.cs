@@ -72,6 +72,7 @@ namespace _2_1056_HODOROAGA_IONUT
             this.previousPageButton.TabIndex = 9;
             this.previousPageButton.Text = "Previous page";
             this.previousPageButton.UseVisualStyleBackColor = true;
+            this.previousPageButton.Click += new System.EventHandler(this.previousPageButton_Click_1);
             // 
             // currentPageLabel
             // 
@@ -101,6 +102,7 @@ namespace _2_1056_HODOROAGA_IONUT
             this.nextPageButton.TabIndex = 12;
             this.nextPageButton.Text = "Next page";
             this.nextPageButton.UseVisualStyleBackColor = true;
+            this.nextPageButton.Click += new System.EventHandler(this.nextPageButton_Click);
             // 
             // totalCountLabel
             // 

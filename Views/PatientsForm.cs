@@ -11,7 +11,7 @@ namespace _2_1056_HODOROAGA_IONUT
       
         private int _totalCount;
         private int _currentPage = 1;
-        private int _pageSize = 25;
+        private int _pageSize = 8;
         private int _totalPages;
 
         private PatientRepository _PacientRepository;
@@ -34,7 +34,6 @@ namespace _2_1056_HODOROAGA_IONUT
             pacientDataGridView.DataSource = _PacientRepository.FetchData(_currentPage, _pageSize);
             CreateButtonColumn("Delete patient", "Delete", "DeletePatientColumn");
             CreateButtonColumn("Edit patient", "Edit", "EditPatientColumn");
-            // CreateButtonColumn("Show prescriptions", "Prescriptions", "ViewPrescriptionsColumn");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -53,15 +52,6 @@ namespace _2_1056_HODOROAGA_IONUT
             pacientDataGridView.DataSource = _PacientRepository.FetchData(_currentPage, _pageSize);
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void previousPageButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void EvaluateButtons()
         {
@@ -98,7 +88,7 @@ namespace _2_1056_HODOROAGA_IONUT
 
         private void pacientDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < pacientDataGridView.Rows.Count)
+            if (e.RowIndex >= 0 && e.RowIndex < pacientDataGridView.Rows.Count && e.ColumnIndex >=0 && e.ColumnIndex < pacientDataGridView.Columns.Count)
             {
                 var columnName = ((DataGridView)sender).Columns[e.ColumnIndex].Name;
                 var patient = (Patient)pacientDataGridView.Rows[e.RowIndex].DataBoundItem;
@@ -118,11 +108,28 @@ namespace _2_1056_HODOROAGA_IONUT
                             }
                         }
                         break;
-                        // case "ViewPrescriptionsColumn":
-                        //   ShowPrescriptions(patient);
-                        //   break;
                 }
             }
+        }
+
+        private void previousPageButton_Click_1(object sender, EventArgs e)
+        {
+            _currentPage--;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+            pacientDataGridView.DataSource = _PacientRepository.FetchData(_currentPage, _pageSize);
+        }
+
+        private void nextPageButton_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+
+            pacientDataGridView.DataSource = _PacientRepository.FetchData(_currentPage, _pageSize);
         }
     }
 }

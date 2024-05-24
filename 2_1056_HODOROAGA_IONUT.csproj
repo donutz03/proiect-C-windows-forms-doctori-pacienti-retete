@@ -101,7 +101,6 @@
       <DependentUpon>AddNewPrescriptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="Documents.cs" />
     <Compile Include="EditForms\EditDoctorForm.cs">
       <SubType>Form</SubType>
     </Compile>
