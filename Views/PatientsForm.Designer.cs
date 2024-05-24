@@ -72,7 +72,7 @@ namespace _2_1056_HODOROAGA_IONUT
             this.previousPageButton.TabIndex = 9;
             this.previousPageButton.Text = "Previous page";
             this.previousPageButton.UseVisualStyleBackColor = true;
-            this.previousPageButton.Click += new System.EventHandler(this.previousPageButton_Click_1);
+            this.previousPageButton.Click += new System.EventHandler(this.previousPageButton_Click);
             // 
             // currentPageLabel
             // 
@@ -140,7 +140,7 @@ namespace _2_1056_HODOROAGA_IONUT
         private System.Windows.Forms.DataGridView pacientDataGridView;
         private System.Windows.Forms.Button previousPageButton;
         private System.Windows.Forms.Label currentPageLabel;
-        private System.Windows.Forms.TextBox currentPageTextBox;
+        public System.Windows.Forms.TextBox currentPageTextBox;
         private System.Windows.Forms.Button nextPageButton;
         private System.Windows.Forms.Label totalCountLabel;
     }

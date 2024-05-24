@@ -15,6 +15,11 @@ namespace _2_1056_HODOROAGA_IONUT
         private int _currentPage = 1;
         private int _pageSize = 8;
         private int _totalPages;
+        public int CurrentPage { get { return _currentPage; } set { _currentPage = value; } }
+        public int PageSize { get { return _pageSize; } set { _pageSize = value; } }
+        public int TotalPages { get { return _totalPages; } set { _totalPages = value; } }
+
+        public int TotalCount { get { return _totalCount; } set { _totalCount = value; } }
 
         private DoctorRepository _DoctorRepository;
         private PrescriptionRepository _PrescriptionRepository;
@@ -59,9 +64,22 @@ namespace _2_1056_HODOROAGA_IONUT
         public void RefreshData()
         {
             doctorDataGridView.DataSource = _DoctorRepository.FetchData(_currentPage, _pageSize);
+
+            TotalCount = _DoctorRepository.GetTotalCount();
+            totalCountTextBox.Text = _totalCount.ToString();
+            if (_totalCount % _pageSize == 0)
+            {
+                _totalPages = _totalCount / _pageSize;
+            }
+            else
+            {
+                _totalPages = (_totalCount / _pageSize) + 1;
+            }
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+            EvaluateButtons();
         }
 
-     
+
 
         private void EvaluateButtons()
         {
@@ -71,7 +89,16 @@ namespace _2_1056_HODOROAGA_IONUT
             {
                 previousPageButton.Enabled = false;
             }
-            if (_currentPage == _totalPages)
+            if (_totalCount % _pageSize == 0)
+            {
+                _totalPages = _totalCount / _pageSize;
+            }
+            else
+            {
+                _totalPages = (_totalCount / _pageSize) + 1;
+            }
+
+            if (_totalPages == _currentPage || _totalPages == 1)
             {
                 nextPageButton.Enabled = false;
             }
@@ -90,6 +117,7 @@ namespace _2_1056_HODOROAGA_IONUT
             if (dialogResult == DialogResult.Yes)
             {
                 _DoctorRepository.DeleteDoctor(doctor);
+                RefreshData();
             }
         }
 
@@ -116,6 +144,8 @@ namespace _2_1056_HODOROAGA_IONUT
                                 if (form is DoctorsForm doctorsForm)
                                 {
                                     doctorsForm.RefreshData();
+
+                                    totalCountTextBox.Text = doctorsForm.TotalCount.ToString();
                                 }
                             }
                             break;

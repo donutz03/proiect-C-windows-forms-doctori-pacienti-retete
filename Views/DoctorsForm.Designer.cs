@@ -137,10 +137,10 @@
 
         private System.Windows.Forms.Label totalCountLabel;
         private System.Windows.Forms.Button nextPageButton;
-        private System.Windows.Forms.TextBox currentPageTextBox;
+        public System.Windows.Forms.TextBox currentPageTextBox;
         private System.Windows.Forms.Label currentPageLabel;
         private System.Windows.Forms.Button previousPageButton;
         private System.Windows.Forms.DataGridView doctorDataGridView;
-        private System.Windows.Forms.TextBox totalCountTextBox;
+        public System.Windows.Forms.TextBox totalCountTextBox;
     }
 }

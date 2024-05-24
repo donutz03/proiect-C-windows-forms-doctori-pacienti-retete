@@ -39,6 +39,9 @@ namespace _2_1056_HODOROAGA_IONUT.AddForms
             {
                 if (form is DoctorsForm doctorsForm)
                 {
+                    doctorsForm.TotalCount = _DoctorRepository.GetTotalCount();
+
+                    doctorsForm.currentPageTextBox.Text = $"{doctorsForm.CurrentPage} / {doctorsForm.TotalPages}";
                     doctorsForm.RefreshData();
                 }
             }
