@@ -94,6 +94,14 @@ namespace _2_1056_HODOROAGA_IONUT
             editDoctorForm.Show();
         }
 
+        private void DeleteDoctor(Doctor doctor)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to perform this action?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                _DoctorRepository.DeleteDoctor(doctor);
+            }
+        }
 
 
         private void doctorDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,11 +118,18 @@ namespace _2_1056_HODOROAGA_IONUT
                             EditDoctor(doctor);
                             break;
                         }
-                        //case "DeleteDoctorColumn":
-                        //    {
-                        //        DeleteProduct(product);
-                        //        break;
-                        //    }
+                    case "DeleteDoctorColumn":
+                        {
+                            DeleteDoctor(doctor);
+                            foreach (var form in Application.OpenForms)
+                            {
+                                if (form is DoctorsForm doctorsForm)
+                                {
+                                    doctorsForm.RefreshData();
+                                }
+                            }
+                            break;
+                        }
                 }
             }
         }

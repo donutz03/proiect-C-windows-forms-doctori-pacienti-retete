@@ -185,5 +185,38 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 conn.Close();
             }
         }
+
+        public void DeleteDoctor(Doctor doctor)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "DELETE FROM DOCTORS WHERE ID = :id";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = doctor.Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace _2_1056_HODOROAGA_IONUT
             InitializeComponent();
             this.IsMdiContainer = true;
             this.MdiChildActivate += MainForm_MdiChildActivate;
+            this.WindowState = FormWindowState.Maximized;
+
         }
 
         private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
