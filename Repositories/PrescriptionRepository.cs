@@ -42,7 +42,7 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 var skip = (currentPage - 1) * pageSize;
                 var take = pageSize;
 
-                string sql = $"SELECT * FROM RETETE ORDER BY ID OFFSET :skip ROWS " +
+                string sql = $"SELECT * FROM RETETE ORDER BY ID DESC OFFSET :skip ROWS " +
                     $"FETCH NEXT :take ROWS ONLY";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))

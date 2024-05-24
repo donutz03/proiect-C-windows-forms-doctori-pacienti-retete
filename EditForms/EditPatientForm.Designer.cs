@@ -28,22 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.updatePatientDateOfBirthTb = new System.Windows.Forms.TextBox();
             this.updatePatientNameTb = new System.Windows.Forms.TextBox();
             this.updatePatientIdTb = new System.Windows.Forms.TextBox();
             this.updateDateOfBirthPatientLabel = new System.Windows.Forms.Label();
             this.updatePacientNameLabel = new System.Windows.Forms.Label();
             this.updatePatientIdLabel = new System.Windows.Forms.Label();
             this.updatePatientButton = new System.Windows.Forms.Button();
+            this.editPatientDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // updatePatientDateOfBirthTb
-            // 
-            this.updatePatientDateOfBirthTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatePatientDateOfBirthTb.Location = new System.Drawing.Point(288, 188);
-            this.updatePatientDateOfBirthTb.Name = "updatePatientDateOfBirthTb";
-            this.updatePatientDateOfBirthTb.Size = new System.Drawing.Size(275, 26);
-            this.updatePatientDateOfBirthTb.TabIndex = 31;
             // 
             // updatePatientNameTb
             // 
@@ -101,13 +93,21 @@
             this.updatePatientButton.TabIndex = 25;
             this.updatePatientButton.Text = "Actualizeaza";
             this.updatePatientButton.UseVisualStyleBackColor = false;
+            this.updatePatientButton.Click += new System.EventHandler(this.updatePatientButton_Click);
+            // 
+            // editPatientDateTimePicker
+            // 
+            this.editPatientDateTimePicker.Location = new System.Drawing.Point(288, 194);
+            this.editPatientDateTimePicker.Name = "editPatientDateTimePicker";
+            this.editPatientDateTimePicker.Size = new System.Drawing.Size(275, 22);
+            this.editPatientDateTimePicker.TabIndex = 31;
             // 
             // EditPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.updatePatientDateOfBirthTb);
+            this.Controls.Add(this.editPatientDateTimePicker);
             this.Controls.Add(this.updatePatientNameTb);
             this.Controls.Add(this.updatePatientIdTb);
             this.Controls.Add(this.updateDateOfBirthPatientLabel);
@@ -122,13 +122,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox updatePatientDateOfBirthTb;
         private System.Windows.Forms.TextBox updatePatientNameTb;
         private System.Windows.Forms.TextBox updatePatientIdTb;
         private System.Windows.Forms.Label updateDateOfBirthPatientLabel;
         private System.Windows.Forms.Label updatePacientNameLabel;
         private System.Windows.Forms.Label updatePatientIdLabel;
         private System.Windows.Forms.Button updatePatientButton;
+        private System.Windows.Forms.DateTimePicker editPatientDateTimePicker;
     }
 }

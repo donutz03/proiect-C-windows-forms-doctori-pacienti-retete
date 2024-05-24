@@ -36,7 +36,7 @@ namespace _2_1056_HODOROAGA_IONUT.AddForms
 
             _patientRepository.AddPatient(newPatient);
 
-            MessageBox.Show("Doctor added successfully!");
+            MessageBox.Show("Patient added successfully!");
             foreach (var form in Application.OpenForms)
             {
                 if (form is PatientsForm patientsForm)

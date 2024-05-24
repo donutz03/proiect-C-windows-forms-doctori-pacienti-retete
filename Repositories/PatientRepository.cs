@@ -41,7 +41,7 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 var skip = (currentPage - 1) * pageSize;
                 var take = pageSize;
 
-                string sql = $"SELECT * FROM PACIENTI ORDER BY NAME OFFSET :skip ROWS " +
+                string sql = $"SELECT * FROM PACIENTI ORDER BY ID DESC OFFSET :skip ROWS " +
                     $"FETCH NEXT :take ROWS ONLY";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
@@ -64,9 +64,107 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
             return data;
         }
 
-        internal void AddPatient(Patient newPatient)
+        public void AddPatient(Patient newPatient)
         {
-            throw new NotImplementedException();
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "INSERT INTO PACIENTI (ID, NAME, DateOfBirth) VALUES (:id, :name, :dateOfBirth)"; // Assuming columns
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = newPatient.Id;
+                    cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = newPatient.Name;
+                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = newPatient.DateOfBirth; // Assuming Date type
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
+        public void UpdatePatient(Patient patient)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "UPDATE PACIENTI SET NAME = :name, DateOfBirth = :dateOfBirth WHERE ID = :id"; // Assuming columns
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("name", OracleDbType.Varchar2).Value = patient.Name;
+                    cmd.Parameters.Add("dateOfBirth", OracleDbType.Date).Value = patient.DateOfBirth; // Assuming Date type
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = patient.Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
+        public void DeletePatient(Patient patient)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "DELETE FROM PACIENTI WHERE ID = :id";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = patient.Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
         }
     }
 }

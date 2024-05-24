@@ -61,6 +61,7 @@ namespace _2_1056_HODOROAGA_IONUT
             this.pacientDataGridView.RowHeadersWidth = 51;
             this.pacientDataGridView.Size = new System.Drawing.Size(765, 462);
             this.pacientDataGridView.TabIndex = 4;
+            this.pacientDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pacientDataGridView_CellClick_1);
             // 
             // previousPageButton
             // 
