@@ -115,5 +115,35 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
             return data;
         }
 
+        public List<Patient> GetPatientsByDoctorId(Doctor doctor)
+        {
+            var patients = new List<Patient>();
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"SELECT DISTINCT P.ID, P.NAME, P.DATEOFBIRTH
+                               FROM PACIENTI P
+                               JOIN RETETE RET ON P.ID = RET.ID_PACIENT
+                               WHERE RET.ID_DOCTOR = :doctorId";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("doctorId", OracleDbType.Int32).Value = doctor.Id;
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        Patient patient = new Patient
+                        {
+                            Id = int.Parse(dataReader["ID"].ToString()),
+                            Name = dataReader["NAME"].ToString(),
+                            DateOfBirth = dataReader["DATEOFBIRTH"].ToString()
+                        };
+                        patients.Add(patient);
+                    }
+                }
+                conn.Close();
+            }
+            return patients;
+        }
+
     }
 }

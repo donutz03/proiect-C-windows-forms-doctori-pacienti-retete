@@ -22,12 +22,15 @@ namespace _2_1056_HODOROAGA_IONUT
         private int _totalPages;
 
         private DoctorRepository _DoctorRepository;
+        private PrescriptionRepository _PrescriptionRepository;
+
 
         public DoctorsForm()
         {
             InitializeComponent();
 
             _DoctorRepository = new DoctorRepository();
+            _PrescriptionRepository = new PrescriptionRepository();
 
             _totalCount = _DoctorRepository.GetTotalCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
@@ -130,7 +133,25 @@ namespace _2_1056_HODOROAGA_IONUT
                             }
                             break;
                         }
+                    case "ViewPatientsColumn":
+                        
+                        ShowPatients(doctor);
+                        break;
                 }
+            }
+        }
+
+        private void ShowPatients(Doctor doctor)
+        {
+            List<Patient> patients = _PrescriptionRepository.GetPatientsByDoctorId(doctor);
+            if (patients.Count > 0) { 
+            string patientList = string.Join(Environment.NewLine, patients.Select(p => $"{p.Name} (DOB: {p.DateOfBirth})"));
+
+            MessageBox.Show(patientList, "Patients Prescribed by Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Doctorul " + doctor.Name + " nu are pacienti!", "Lipsa pacienti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
