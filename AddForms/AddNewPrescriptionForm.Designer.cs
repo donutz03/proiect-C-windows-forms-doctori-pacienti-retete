@@ -53,6 +53,7 @@
             this.addPrescriptionButton.TabIndex = 0;
             this.addPrescriptionButton.Text = "Adauga";
             this.addPrescriptionButton.UseVisualStyleBackColor = false;
+            this.addPrescriptionButton.Click += new System.EventHandler(this.addPrescriptionButton_Click);
             // 
             // prescriptionIdLabel
             // 

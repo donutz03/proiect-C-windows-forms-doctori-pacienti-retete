@@ -1,51 +1,4 @@
-﻿/*using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _2_1056_HODOROAGA_IONUT.Repositories
-{
-    public class RecipeRepository
-    {
-        public void AddRecipe(Recipe Recipe)
-        {
-            FakeDatabase.Recipes.Add(Recipe);
-        }
-
-        public BindingList<Recipe> GetAllRecipes()
-        {
-            return FakeDatabase.Recipes;
-        }
-
-        public void UpdateRecipe(Recipe Recipe)
-        {
-            var existing = FakeDatabase.Recipes.First(x => x.Id == Recipe.Id);
-            existing.Name = Recipe.Name;
-            existing.Description = Recipe.Description;
-            existing.NetPrice = Recipe.NetPrice;
-            existing.IsFoodItem = Recipe.IsFoodItem;
-            FakeDatabase.Recipes.ResetBindings();
-        }
-
-        public void DeleteRecipe(Recipe Recipe)
-        {
-            FakeDatabase.Recipes.Remove(Recipe);
-        }
-
-        public void ResetDatabaseWith(List<Recipe> Recipes)
-        {
-            FakeDatabase.Recipes.Clear();
-            foreach (var Recipe in Recipes)
-            {
-                FakeDatabase.Recipes.Add(Recipe);
-            }
-        }
-    }
-}
-*/
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,9 +31,9 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
             return count;
         }
 
-        public List<Prescription> FetchData(int currentPage, int pageSize)
+        public BindingList<Prescription> FetchData(int currentPage, int pageSize)
         {
-            var data = new List<Prescription>();
+            var data = new BindingList<Prescription>();
 
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
@@ -135,7 +88,7 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                         {
                             Id = int.Parse(dataReader["ID"].ToString()),
                             Name = dataReader["NAME"].ToString(),
-                            DateOfBirth = dataReader["DATEOFBIRTH"].ToString()
+                            DateOfBirth = (DateTime)dataReader["DATEOFBIRTH"]
                         };
                         patients.Add(patient);
                     }
@@ -143,6 +96,111 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                 conn.Close();
             }
             return patients;
+        }
+
+        public void AddPrescription(Prescription prescription)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "INSERT INTO RETETE (ID, DESCRIPTION, ID_PACIENT, ID_DOCTOR) VALUES (:id, :description, :idPacient, :idDoctor)";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;
+                    cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
+                    cmd.Parameters.Add("idPacient", OracleDbType.Int32).Value = prescription.IdPacient;
+                    cmd.Parameters.Add("idDoctor", OracleDbType.Int32).Value = prescription.IdDoctor;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
+        public void UpdatePrescription(Prescription prescription)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "UPDATE RETETE SET DESCRIPTION = :description, ID_PACIENT = :idPacient, ID_DOCTOR = :idDoctor WHERE ID = :id";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("description", OracleDbType.Varchar2).Value = prescription.Description;
+                    cmd.Parameters.Add("idPacient", OracleDbType.Int32).Value = prescription.IdPacient;
+                    cmd.Parameters.Add("idDoctor", OracleDbType.Int32).Value = prescription.IdDoctor;
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
+        public void DeletePrescription(Prescription prescription)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = conn.CreateCommand())
+                {
+                    var sql = "DELETE FROM RETETE WHERE ID = :id";
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("id", OracleDbType.Int32).Value = prescription.Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+
+                conn.Close();
+            }
         }
 
     }

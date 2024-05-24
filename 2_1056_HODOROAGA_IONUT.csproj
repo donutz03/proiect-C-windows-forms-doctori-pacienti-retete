@@ -108,6 +108,18 @@
     <Compile Include="EditForms\EditDoctorForm.Designer.cs">
       <DependentUpon>EditDoctorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditForms\EditPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditPatientForm.Designer.cs">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForms\EditPrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditPrescriptionForm.Designer.cs">
+      <DependentUpon>EditPrescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Prescription.cs" />
@@ -157,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditForms\EditDoctorForm.resx">
       <DependentUpon>EditDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditPatientForm.resx">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditPrescriptionForm.resx">
+      <DependentUpon>EditPrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

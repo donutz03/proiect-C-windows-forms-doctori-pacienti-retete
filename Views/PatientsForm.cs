@@ -65,5 +65,10 @@ namespace _2_1056_HODOROAGA_IONUT
                 nextPageButton.Enabled = false;
             }
         }
+
+        internal void RefreshData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

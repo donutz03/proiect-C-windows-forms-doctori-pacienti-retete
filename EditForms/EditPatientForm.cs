@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _2_1056_HODOROAGA_IONUT.AddForms
+namespace _2_1056_HODOROAGA_IONUT.EditForms
 {
-    public partial class AddNewPrescriptionForm : Form
+    public partial class EditPatientForm : Form
     {
-        public AddNewPrescriptionForm()
+        public EditPatientForm()
         {
             InitializeComponent();
-        }
-
-        private void addPrescriptionButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -55,13 +55,18 @@ namespace _2_1056_HODOROAGA_IONUT.Repositories
                         Patient Pacient = new Patient();
                         Pacient.Id = int.Parse(dataReader["ID"].ToString());
                         Pacient.Name = dataReader["NAME"].ToString();
-                        Pacient.DateOfBirth = dataReader["DateOfBirth"].ToString();
+                        Pacient.DateOfBirth = (DateTime)dataReader["DateOfBirth"];
                         data.Add(Pacient);
                     }
                 }
                 conn.Close();
             }
             return data;
+        }
+
+        internal void AddPatient(Patient newPatient)
+        {
+            throw new NotImplementedException();
         }
     }
 }

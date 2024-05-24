@@ -145,9 +145,9 @@ namespace _2_1056_HODOROAGA_IONUT
         {
             List<Patient> patients = _PrescriptionRepository.GetPatientsByDoctorId(doctor);
             if (patients.Count > 0) { 
-            string patientList = string.Join(Environment.NewLine, patients.Select(p => $"{p.Name} (DOB: {p.DateOfBirth})"));
+            string patientList = string.Join(Environment.NewLine, patients.Select(p => $"{p.Name} (DOB: {p.DateOfBirth.ToShortDateString()})"));
 
-            MessageBox.Show(patientList, "Patients Prescribed by Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(patientList, "Patients of Dr. " + doctor.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
